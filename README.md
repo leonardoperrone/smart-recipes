@@ -6,8 +6,11 @@ Another optional implementation on top of the original purpose could be to give 
 
 # Research questions
 What are the popular ingredients in recipes?
+
 What are the most similar ingredients that could be switched together?
+
 Can the recepies be clustered according to the cuisine (ex: italian recipes would be clustered together) ? And how would this influence the replacement of ingredients?
+
 How would different word embeddings help in learning the mappings among recipes? 
 What is the distribution of the frequency of ingredient words present in the data? Can we fit a distribution ? Can this distribution be used to learn a mapping between the ingredients?
 
