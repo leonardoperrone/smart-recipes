@@ -39,7 +39,7 @@ More steps of the actual processing and ML models are provided below.
 5. GloVe
 **NOTE:** the previous models will use the word embeddings to learn a mapping to replace ingredients. We will use cosine-similarity and L2 norm of the embeddings to replace the vectors. 
 
-## Evaluation:
+### Evaluation:
 
 This is a very difficult task as this task should be human understandable and requires human intervention. However what we propose is to use the clusters formed previously and see if the proposed ingredient belong to one cluster or not. 
 
