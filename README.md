@@ -22,7 +22,7 @@ For this project we will use the Recipes (https://stanford.io/2CVAwix) and Food 
 The Recipes dataset contains many links to recipe pages. The recipes have steps, ingredients and quantities of the ingredients needed. This information, once parsed, gives information about what ingredients compose every recipe. The other set, as mentioned before, is about food facts and it contains more than 680k items. It has information about food items in several languages, so it will need to cleaned up and either be translated to english or filtered for english content. This is done so that both sets have the same spelling for the ingredients/food items.
 More steps of the actual processing and ML models are provided below.
 
-## Preprocessing:
+### Preprocessing:
 1. Parse the html data
 2. Extract tokens from the recipes
 3. Stem the extracted tokens
@@ -31,13 +31,13 @@ More steps of the actual processing and ML models are provided below.
 6. Transform recipes into word embeddings
 7. Visualizations: word clouds and bar plots
 
-## Models:
+### Models:
 1. Use k-mean clustering to cluster recipes together
 2. Visualize the clusters, can be used as a metric to evaluate other models
 3. Baseline model: K-Nearest Neighbour  
 4. Latent semantic analysis
 5. GloVe
-### NOTE: the previous models will use the word embeddings to learn a mapping to replace ingredients. We will use cosine-similarity and L2 norm of the embeddings to replace the vectors. 
+**NOTE:** the previous models will use the word embeddings to learn a mapping to replace ingredients. We will use cosine-similarity and L2 norm of the embeddings to replace the vectors. 
 
 ## Evaluation:
 
