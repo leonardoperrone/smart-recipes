@@ -43,7 +43,7 @@ More steps of the actual processing and ML models are provided below.
 
 This is a very difficult task as this task should be human understandable and requires human intervention. However what we propose is to use the clusters formed previously and see if the proposed ingredient belong to one cluster or not. 
 
-# Milestones
+# Internal Milestones up to Project Milestone 2
 
 By:
 - **Nov. 4th:** Deliver README with project details.
