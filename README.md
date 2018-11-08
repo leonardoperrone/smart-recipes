@@ -37,6 +37,7 @@ More steps of the actual processing and ML models are provided below.
 3. Baseline model: K-Nearest Neighbour  
 4. Latent semantic analysis
 5. GloVe
+
 **NOTE:** the previous models will use the word embeddings to learn a mapping to replace ingredients. We will use cosine-similarity and L2 norm of the embeddings to replace the vectors. 
 
 ### Evaluation:
