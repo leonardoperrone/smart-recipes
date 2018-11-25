@@ -30,7 +30,17 @@ The `Recipes` dataset contains links to recipe pages. The recipes themselves con
 2. Extract recipe attributes and reviews
 3. Find a common data format for all websites included in the study
 4. Convert key attributes into a common format
-5. Stem the extracted tokens
+5. Text cleaning : tokenization , removal of stop words , lemmatization and converting into appropriate format for analysis
+
+### Analysis: (Milestone 3)
+The analysis will include a thorough study of the features against each other to see their effect on the sentiment of the user. The analysis will be focused on two parts:
+1. Analyzing features that are extracted from the website including : cooking and preparation times of a meal,review posting dates , nutritional compostion of the meal ... The analysis will see the direct effect of these features on the sentiment of the users through different visualizations that will show both the them seperatley and combined together.
+2. Analyzing the textual component of the reviews. This will help us labeling the datasets that don't have a rating as we can use fast-text to label the dataset. Also we can extract features such as the positive and negative words, the length of the review and the repetition of words in the reviews and use them with the features above to observe the infer the relation to the sentiment of the user.
+
+# Directory structure:
+There are two main notebooks :
+1. Preprocessing.ipynb : contains the cleaning of the scrapped websites and anlysis of some variables.
+2. Smart Recipes.ipynb : contains the website scrapping procedure.
 
 # Internal Milestones up to Project Milestone 2
 - **Nov. 4th:** Deliver README with project details.
@@ -38,6 +48,11 @@ The `Recipes` dataset contains links to recipe pages. The recipes themselves con
 - **Nov. 15th:** Have cleaned sets. Extract proper data from both and map ingredients to recipes.
 - **Nov. 18th:** Obtain a set that is ready to be utilized for analysis.
 - **Nov. 25th:** Create meaningful plots and visual summaries of the data.
+
+
+# Challenges for milestone 3:
+1. To decided wether to integrate all scraped data into one dataset or compare them against each other?
+2. To find the best representations of the text reviews , bag-of-words vs. tf-idf ?
 
 # Questions for TA
 None at the moment
