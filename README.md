@@ -2,11 +2,12 @@
 
 # Abstract
 
-In this project we would like to see which components of a recipe affect most the sentiment of the users giving feedback on the recipe. Such factors may include  
+In this project we would like to see which components of a recipe affect most the sentiment of the users giving feedback on the recipe. Such factors may include among others:  
 - the time to prepare and cook the meal  
 - the type of the cuisine  
 - the level of difficulty of preparing the meal  
-and many more. We would like to explore relationships between such features and maybe suggest for chefs ways of presenting a recipe to attract users and receive positive feedback, potentially including users who might not even attempted to prepare the recipe.
+
+We are going to explore relationships between such features and suggest strategies of publishing a recipe in order to attract users and receive positive feedback, potentially including users who might not even attempted to prepare the recipe.
 
 
 # Research questions
@@ -19,7 +20,7 @@ and many more. We would like to explore relationships between such features and 
 6) Do meals serving many people get a better review ?
 
 # Dataset
-For this project we will use the `Recipes` (https://stanford.io/2CVAwix) dataset. The dataset is in a HTML format so it will need to be parsed accordingly to extract the data. To make things more complicated, the dataset contains recipes from multiple websites, each of those having their own layout and formatting, which will require a different parsing logic for each. In order to simplify the task, but avoid losing too much valuable information, we are going to choose a number of websites which contain the most recipes. Focusing on the websites with the most recipes will also help to keep our analysis less prone to outliers, as we assume that those websites have greater and more diverse user base.
+For this project we will use the `Recipes` (https://stanford.io/2CVAwix) dataset. The dataset is in a HTML format so it will need to be parsed accordingly to extract the data. To make things more complicated, the dataset contains recipes from multiple websites, each of those having their own layout and formatting, which will require a different parsing logic for each. In order to simplify the task, but avoid losing too much valuable information, we are going to choose a number of websites which contain the most recipes. Focusing on the websites with the most recipes will also help to keep our analysis less prone to outliers, as we assume that those top websites have greater and more diverse user base.
 
 ### Data
 The `Recipes` dataset contains links to recipe pages. The recipes themselves consist of steps, ingredients and quantities of the ingredients needed. This information, once parsed, gives information about what ingredients compose the recipe, as well as other attributes which may influence the reviews, such as preparation time and difficulty. The websites also capture reviews posted by readers. Our ulimate goal is to find correlations between the recipe attributes and the number of good and bad reviews.
