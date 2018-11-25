@@ -1,18 +1,18 @@
 # Smart Recipes
 
 # Abstract
-The main idea behind this project is to optimize the utilization of the ingredients present in one’s fridge. This is accomplished by analyzing recipes, as well as food facts, and establish a type of distance between products, indicating that we can use different food items to prepare the same recipe. Using this, from a given input of products available at home, the program could suggest recipes, including new recipes derived by replacing some ingredients not presented in the input set of ingredients, with other similar ingredients that might be available to the user. 
-Another optional implementation on top of the original purpose could be to give the user the option to turn recipes into gluten-free, pork-free, etc, in order to meet an individual’s dietary restrictions.This would help people waste less food due to the possible combinations of ingredients that they might not be aware of and educates them in associating specific ingredientes with similar ones.
+
+In this project we would like to see which components of a recipe affect most the sentiment of the users giving feedback on the recipe. Such factors may include : the time to prepare and cook the meal, the type of the cuisine, the level of difficulty of preparing the meal and many more. We would like to explore relationships between such features and maybe suggest for chefs ways of presenting a recipe to attract users to give positive feedback. (People who may not be even trying recepie)
+
 
 # Research questions
-What are the popular ingredients in recipes?
 
-What are the most similar ingredients that could be switched together?
-
-Can the recepies be clustered according to the cuisine (ex: italian recipes would be clustered together) ? And how would this influence the replacement of ingredients?
-
-How would different word embeddings help in learning the mappings among recipes? 
-What is the distribution of the frequency of ingredient words present in the data? Can we fit a distribution ? Can this distribution be used to learn a mapping between the ingredients?
+1) Does less preparation and cooking time result in a good review from users?
+2) Does the level of healthiness attract people on preparing this meal or not?
+3) How does the cuisine type reflect on the tendency of people trying this recepie ? (would people tend to try non-local food)
+4) How does the effect of the first review on the remaining ones?
+5) How does the sentiment of the users change over time regarding one recipe?
+6) Do meals serving many people get a better review ?
 
 
 
