@@ -20,6 +20,7 @@
 \usepackage{url}
 \usepackage{latexsym}
 \usepackage{graphicx}
+\usepackage{nicefrac}
 \graphicspath{ {./images/} }
 
 %\setlength\titlebox{5cm}
@@ -45,7 +46,9 @@
 \maketitle
 \begin{abstract}
   The aim of this document is to find correlations between attributes and characteristics of food recipes and the corresponding ratings and reviews given to that recipe.
+  
   Recipes are gathered from the most popular online recipe websites, extracting common attributes and normalizing them between the different representations. Apart from the attributes explicitly included in the recipe descriptions, new properties are being defined by grouping recipe ingredients into different categories. Furthermore, sentiment analysis is performed on the content of recipe reviews, providing a way to determine the corresponding ratings.
+  
   Performing a range of different analysis techniques provides a set of hints and best practices to help recipe authors to maximize their ratings by choosing the recipes with attributes most likely to be rated positively.
 \end{abstract}
 
@@ -55,11 +58,11 @@ This document has been prepared for the \textbf{Applied Data Analytics} course a
 
 \section{Data acquisition}
 
-The recipe data is extracted from the \textit{Cooking recipes} database, which is a collection of HTML documents from a wide variety of websites.
+The recipe data has been extracted from the \textit{Cooking recipes} database, which is a collection of HTML documents from a wide variety of websites.
 
 \subsection{Data sources}
 
-The analysis is based on data extracted from the most popular websites containing food recipes. The data included recipes from over 50 websites, all featuring their own format and attributes. The initial analysis showed that a few websites containing the highest number of recipes represent a good portion of the total recipes. Since each website requires a custom scraper to be built, and each website displays different attributes of recipes and their ingredients, the aim was to select a small number of websites which still give a good representation of the entire data set.
+The analysis has been based on data extracted from the most popular websites containing food recipes. The data included recipes from over 50 websites, all featuring their own custom format and attributes. Since each website required a custom scraper to be built, and each website displays different attributes of recipes and their ingredients, the aim was to select a small number of websites which still offer a good representation of the entire data set. The aim was to work with \nicefrac{2}{3} of the total number of available recipes.
 
 \vspace{5mm}
 \begin{center}
@@ -72,13 +75,13 @@ The top 3 websites containing the most recipes cover about 65\% of all data:
 \begin{enumerate}
 \item http://allrecipes.com
 \item http://www.food.com
-\item https://subscribe.hearstmags.com
+\item https://subscribe.hearstmags.com (food-net)
 \end{enumerate}
 
 \subsection{Data import}
 
-The three selected websites provide different recipe attributes in different formats, which need to be parsed and consolidated into a common format in order to perform meaningful analysis on them.
-Common attributes are:
+The three selected websites provided different recipe attributes in different formats, which needed to be parsed and consolidated into a common format in order to perform meaningful analysis on them.
+Common attributes were:
 \begin{itemize}
     \item name
     \item review text
@@ -94,23 +97,23 @@ Common attributes are:
 \end{itemize}
 These attributes may have different scales, different measurement units, or may be missing altogether. 
 
-The three websites require custom scraping algorithms. The source data volume is about 13 GB, which is feasible to be processed on a single computer. The scraping takes 20-30 minutes, the results are stored in \textit{json} format to allow efficient further processing.
+The three websites required custom scraping algorithms. The source data volume was about 13 GB, making it feasible to be processed on a single computer. The scraping took 20-30 minutes, the results were stored in \textit{json} format to allow efficient processing.
 
 \subsection{Data cleaning}
 
-Due to the different formats, the data sets must be cleaned separately. Nutrition information has to be converted to numeric values, using the same measurement units across all recipes. Time values expressed in hours or days need to be converted to minutes. Rating values must be scaled to a common range. Some websites display servings as text, which must be converted to numeric values.
+Due to the different formats, the data sets had to be cleaned separately. Nutrition information had to be converted to numeric values on a unified scale, using the same measurement units across all recipes. Time values expressed in hours or days needed to be converted to minutes. Rating values had to be scaled to a common range. Some text values had to be converted to numeric values.
 
 \subsection{Review pre-processing}
 
-The content of the reviews have a special importance for the analysis. In order to analyze the text, a pipeline is constructed to clear the text. Numbers and other non-alphanumeric characters are removed, and all remaining text is converted to lowercase. Stop words offer little value in terms of semantic analysis, so they are being removed. Lemmatizing removes prefixes and suffixes, helping to group similar words. Finally a document term matrix is constructed using both TF-IDF and one-hot encoding matrices.
+The content of the reviews had special importance for the analysis. In order to analyze the text, a pipeline was constructed to clear the text. Numbers and other non-alphanumeric characters were removed, and all remaining text was converted to lowercase. Stop words offered little value in terms of semantic analysis, so they were removed. Lemmatizing removed prefixes and suffixes, helping to group similar words. Finally a document term matrix was constructed using both TF-IDF and one-hot encoding matrices.
 
 \section{Preliminary visual analysis}
 
-Once the raw data has been converted into a clean data set with common attributes, they are visualized in order to better understand the characteristics. This analysis is performed before combining the data sets into a single one, allowing comparison between websites.
+Once the raw data had been converted into a clean data set with common attributes, they were visualized in order to better understand the characteristics. This analysis was performed before combining the data sets into a single one, allowing comparison between websites.
 
 \subsection{Ratings}
 
-Ratings tend to be dominated by high values. After converting them to a common scale of 3 it can be observed that good ratings highly outnumber bad or medium ones.
+Ratings were found to be dominated by high values. After converting them to a common scale of 3 it was observed that good ratings highly outnumber bad or medium ones.
 
 \vspace{5mm}
 \begin{center}
@@ -122,7 +125,7 @@ Ratings tend to be dominated by high values. After converting them to a common s
 
 \subsection{Serving size}
 
-Serving sizes range up to 300, but there are only a small number of recipes for more than 50 persons. The 75\% percentile falls to serving sizes of 8 and 12 respectively for the two websites with the most recipes. 
+Serving sizes ranged up to 300, but there were only a small number of recipes for more than 50 persons. The 75\% percentile fell to serving sizes of 8 and 12 respectively for the two websites with the most recipes. 
 
 \vspace{5mm}
 \begin{center}
@@ -134,7 +137,7 @@ Serving sizes range up to 300, but there are only a small number of recipes for 
 
 \subsection{Reviews over time}
 
-Most reviews have been created between 2000 and 2010, indicating the period when the data has been collected. The density curves suggest different trends for the popularity of the websites. The allrecipes site shows declining review numbers over the years, while food.com has fairly constant activity, and food-net reviews sharply increase towards the end of the period.
+Most reviews have been created between 2000 and 2010, indicating the period when the data had been collected. The density curves suggested different trends for the popularity of the websites. The allrecipes site showed declining review numbers over the years, while food.com had fairly constant activity, and food-net reviews sharply increased towards the end of the period.
 
 \vspace{5mm}
 \begin{center}
@@ -147,7 +150,7 @@ Most reviews have been created between 2000 and 2010, indicating the period when
 
 \subsection{Cooking time}
 
-Cooking times range for a few minutes to several hours, but the distribution shows that most recipes require less than 1 hour cooking, recipes requiring 30 minutes or less being more common.
+Cooking times ranged from a few minutes to several hours, but the distribution showed that most recipes required less than 1 hour cooking, recipes requiring 30 minutes or less being the most common.
 
 \vspace{5mm}
 \begin{center}
@@ -158,7 +161,77 @@ Cooking times range for a few minutes to several hours, but the distribution sho
 \end{center}
 \vspace{5mm}
 
+\section{Ingredient clustering}
 
+Comparing recipes based on ingredients is problematic, due to the high number of possible ingredients. By grouping similar ingredients into clusters we were able classify recipes by how many ingredients they contained from each cluster. The following procedure has been performed separately for the different websites, for the sake of simplicity we demonstrate the results from food.com only.
+
+First, measurements and other non-food related words needed to be removed from the review text. For example, words like cup or tablespoon were featured frequently, but were irrelevant to define ingredient clusters. Removing these words and keeping only ingredients resulted in more balanced distribution.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.18]{ingredient-before}
+\includegraphics[scale=0.18]{ingredient-after}
+\label{visalization-cookingtime} Figure 6. Ingredient distribution
+\end{center}
+\vspace{5mm}
+
+By applying pre-trained word2vec vectors, we mapped each ingredient into a word vector, and projected them to a 2-dimensional plane using t-distributed stochastic neighbor embedding. 
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.24]{ingredient-tsne}
+\label{visalization-cookingtime} Figure 7. Ingredient word vectors
+\end{center}
+\vspace{5mm}
+
+We used silhouette analysis to find the optimal number of clusters for the k-means clustering, determining that 29 clusters produced the best performance.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.18]{ingredient-kmeans}
+\label{visalization-cookingtime} Figure 8. K-means silhouette analysis
+\end{center}
+\vspace{5mm}
+
+Based on manual analysis of the classified ingredients, the individual clusters have been named accordingly and projected on the 2D plane.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.24]{ingredient-clusters}
+\label{visalization-cookingtime} Figure 9. Ingredient clusters
+\end{center}
+\vspace{5mm}
+
+\section{Unified data set}
+
+The next step was to combine the cleaned and pre-processed data from the three websites into a single unified data set, and prepare the attributes so they can be efficiently analyzed.
+
+\subsection{Missing ratings}
+
+Since ratings had special importance for the study, keeping the values on a scale from 1 to 5 allowed more fine grained evaluation rather than compressed ratings on a 1 to 3 scale which was used for the preliminary analysis.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.25]{rating-1-to-3}
+\includegraphics[scale=0.25]{rating-1-to-5}
+\label{visalization-cookingtime} Figure 10. Rating distribution on scales of 3 and 5
+\end{center}
+\vspace{5mm}
+
+The food-net site contained no rating values at all, only reviews. In order to retain this data, the missing rating values had to be enriched based on the reviews. This has been achieved by using sentiment analysis and logistic regression where both reviews and ratings were available, and use the trained model to predict the missing rating values from the corresponding reviews.
+
+\subsection{Rating bias}
+
+Rating values of 4 were by far the most common, resulting in an implicit bias in the analysis. In order to reduce this bias, the ratings have been slightly adjusted based on the reviews, resulting in a more balanced distribution. After all, the overall ratings provide a quick way to compare recipes, but readers are likely to read the corresponding reviews before deciding between them.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.18]{rating-balanced}
+\label{visalization-cookingtime} Figure 11. Improved rating balance
+\end{center}
+\vspace{5mm}
+
+\section{Analysis}
 
 
 
