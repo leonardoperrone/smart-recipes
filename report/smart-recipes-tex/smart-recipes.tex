@@ -77,7 +77,6 @@ Common attributes were:
     \item nutritional values
     \item preparation time
     \item cooking time
-    \item difficulty
     \item serving size
 \end{itemize}
 These attributes may have different scales, different measurement units, or may be missing altogether. 
@@ -90,7 +89,7 @@ Due to the different formats, the data sets had to be cleaned separately. Nutrit
 
 \subsection{Review pre-processing}
 
-The content of the reviews had special importance for the analysis. In order to analyze the text, a pipeline was constructed to clear the text. Numbers and other non-alphanumeric characters were removed, and all remaining text was converted to lowercase. Stop words offered little value in terms of semantic analysis, so they were removed. Lemmatizing removed prefixes and suffixes, helping to group similar words. Finally a document term matrix was constructed using both TF-IDF and one-hot encoding matrices.
+The content of the reviews had special importance for the analysis. In order to analyze the text, a pipeline was constructed to clear the text. Numbers and other non-alphanumeric characters were removed, and all remaining text was converted to lowercase. Stop words offered little value in terms of semantic analysis, so they were removed. Lemmatizing removed prefixes and suffixes, helping to group similar words.
 
 \section{Preliminary visual analysis}
 
@@ -148,7 +147,7 @@ Cooking times ranged from a few minutes to several hours, but the distribution s
 
 \section{Ingredient clustering}
 
-Comparing recipes based on ingredients is problematic, due to the high number of possible ingredients. By grouping similar ingredients into clusters we were able classify recipes by how many ingredients they contained from each cluster. The following procedure has been performed separately for the different websites, for the sake of simplicity we demonstrate the results from food.com only.
+Comparing recipes based on ingredients is problematic, due to the high number of possible ingredients. By grouping similar ingredients into clusters we were able classify recipes by how many ingredients they contained from each cluster. The following procedure has been performed separately for the different websites, for the sake of simplicity we demonstrate the results from \textit{allrecipes.com} only.
 
 First, measurements and other non-food related words needed to be removed from the review text. For example, words like cup or tablespoon were featured frequently, but were irrelevant to define ingredient clusters. Removing these words and keeping only ingredients resulted in more balanced distribution.
 
@@ -183,7 +182,7 @@ Based on manual analysis of the classified ingredients, the individual clusters 
 \vspace{5mm}
 \begin{center}
 \includegraphics[scale=0.24]{ingredient-clusters}
-\label{ingredient-clusters} Figure 9. Ingredient clusters
+\label{ingredient-clusters} Figure 9. Ingredient centroids
 \end{center}
 \vspace{5mm}
 
@@ -203,7 +202,7 @@ Since ratings had special importance for the study, keeping the values on a scal
 \end{center}
 \vspace{5mm}
 
-The food-net site contained no rating values at all, only reviews. In order to retain this data, the missing rating values had to be enriched based on the reviews. This has been achieved by using sentiment analysis and logistic regression where both reviews and ratings were available, and use the trained model to predict the missing rating values from the corresponding reviews.
+The \textit{www.food.com} site contained no rating values at all, only reviews. In order to retain this data, the missing rating values had to be enriched based on the reviews. This has been achieved by using sentiment analysis and logistic regression where both reviews and ratings were available, and use the trained model to predict the missing rating values from the corresponding reviews.
 
 \subsection{Rating bias}
 
