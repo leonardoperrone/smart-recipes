@@ -39,8 +39,11 @@ The analysis will include a thorough study of the features against each other to
 
 # Directory structure:
 There are two main notebooks :
-1. Preprocessing.ipynb : contains the cleaning of the scrapped websites and anlysis of some variables.
-2. Smart Recipes.ipynb : contains the website scrapping procedure.
+1. Preprocessing.ipynb : contains initial attempt of cleaning the dataset. (SAME AS MILESTONE 2)
+2. Smart Recipes.ipynb : contains the website scrapping procedure. (SAME AS MILESTONE 2)
+3. Data_prep_augment.ipynb : Contains all the cleaning of the dataset and text processing of reviews and ingredients.
+As well contains complenting the datasets using unsupervised learning. (NEW FOR MILESTONE 3)
+4. analysis.ipynb : contains analysis of all features and correlations between these features and the sentiment of the users. (NEW FOR MILESTONE 3)
 
 # Internal Milestones up to Project Milestone 2
 - **Nov. 4th:** Deliver README with project details.
@@ -50,9 +53,24 @@ There are two main notebooks :
 - **Nov. 25th:** Create meaningful plots and visual summaries of the data.
 
 
-# Challenges for milestone 3:
-1. To decided wether to integrate all scraped data into one dataset or compare them against each other?
-2. To find the best representations of the text reviews , bag-of-words vs. tf-idf ?
+# Differences between Milestone 2 and Milestone 3: (NEED TO GRADE)
+A) All the updates below can be found under Data_prep_augment.ipynb :
+1. Transforming ingredients into vector embeddings. Then clustering these embeddings to obtain a food class for each ingredient. Using the food classes as features, representing the ingredients of the recipe.
+2. Using an average of word embeddings for user reviews on all recipe dataset. Then train a logistic regression model on those embeddings. Using this model to predict ratings for food.com dataset.
+3. Unifiying the two datasets : All_recipe.com and Food.com
+
+B) All the updates below can be found under analysis.ipynb :
+
+1. Plots having relation between : cooking time , prepration time , nutrition compositon, ingredient compostion , and graph degree of ingredients linked together against recipe rating (denotes user's sentiment) 
+
+C) Report:
+a report summing up all the project
+
+# Contributions:
+1) Omar Mehio : web scrapers, data cleaning of all three datasets , feature engineering(word embeddings , kmeans clustering , logistic regression , unifying datasets) , analysis plots ( graph plots, prepration and cooking times plots, food composition plots )
+2) Attila Bekker : report and intial analysis of the distributions of the data
+3) Leonardo Perrone : analysis of nutrition composition and intial analysis of the distributions of the data
+
 
 # Questions for TA
 None at the moment
