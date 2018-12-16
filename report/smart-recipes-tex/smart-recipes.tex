@@ -1,19 +1,11 @@
 %
-% File acl2014.tex
+% File smart-recipes.tex
 %
-% Contact: giovanni.colavizza@epfl.ch
-%%
-%% Based on the style files for ACL-2013, which were, in turn,
-%% Based on the style files for ACL-2012, which were, in turn,
-%% based on the style files for ACL-2011, which were, in turn, 
-%% based on the style files for ACL-2010, which were, in turn, 
-%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
-%% based on the style files for EACL-2009 and IJCNLP-2008...
-
-%% Based on the style files for EACL 2006 by 
-%%e.agirre@ehu.es or Sergi.Balari@uab.es
-%% and that of ACL 08 by Joakim Nivre and Noah Smith
-
+% Contact: attila.bekker@epfl.ch
+%
+% Based on the style files for ACL-2014 
+% from the epfl-ada-2018/Project repository
+%
 \documentclass[11pt]{article}
 \usepackage{acl2014}
 \usepackage{times}
@@ -24,13 +16,6 @@
 \graphicspath{ {./images/} }
 
 %\setlength\titlebox{5cm}
-
-% You can expand the titlebox if you need extra space
-% to show all the authors. Please do not make the titlebox
-% smaller than 5cm (the original size); we will check this
-% in the camera-ready version and ask you to change it back.
-
-
 \title{Smart recipes}
 
 \author{Omar Mehio \\
@@ -119,7 +104,7 @@ Ratings were found to be dominated by high values. After converting them to a co
 \begin{center}
 \includegraphics[scale=0.085]{ratings-1}
 \includegraphics[scale=0.085]{ratings-2}
-\label{visalization-ratings} Figure 2. Ratings distribution
+\label{rating-dist} Figure 2. Ratings distribution
 \end{center}
 \vspace{5mm}
 
@@ -131,7 +116,7 @@ Serving sizes ranged up to 300, but there were only a small number of recipes fo
 \begin{center}
 \includegraphics[scale=0.085]{servings-1}
 \includegraphics[scale=0.085]{servings-2}
-\label{visalization-servings} Figure 3. Servings distribution
+\label{serving-dist} Figure 3. Servings distribution
 \end{center}
 \vspace{5mm}
 
@@ -144,7 +129,7 @@ Most reviews have been created between 2000 and 2010, indicating the period when
 \includegraphics[scale=0.17]{time-1}
 \includegraphics[scale=0.17]{time-2}
 \includegraphics[scale=0.17]{time-3}
-\label{visalization-time} Figure 4. Reviews over time
+\label{time-dist} Figure 4. Reviews over time
 \end{center}
 \vspace{5mm}
 
@@ -157,7 +142,7 @@ Cooking times ranged from a few minutes to several hours, but the distribution s
 \includegraphics[scale=0.06]{cookingtime-1}
 \includegraphics[scale=0.06]{cookingtime-2}
 \includegraphics[scale=0.06]{cookingtime-3}
-\label{visalization-cookingtime} Figure 5. Cooking time distribution
+\label{cookingtime-dist} Figure 5. Cooking time distribution
 \end{center}
 \vspace{5mm}
 
@@ -171,7 +156,7 @@ First, measurements and other non-food related words needed to be removed from t
 \begin{center}
 \includegraphics[scale=0.18]{ingredient-before}
 \includegraphics[scale=0.18]{ingredient-after}
-\label{visalization-cookingtime} Figure 6. Ingredient distribution
+\label{ingredient-dist} Figure 6. Ingredient distribution
 \end{center}
 \vspace{5mm}
 
@@ -180,7 +165,7 @@ By applying pre-trained word2vec vectors, we mapped each ingredient into a word 
 \vspace{5mm}
 \begin{center}
 \includegraphics[scale=0.24]{ingredient-tsne}
-\label{visalization-cookingtime} Figure 7. Ingredient word vectors
+\label{ingredient-vectors} Figure 7. Ingredient word vectors
 \end{center}
 \vspace{5mm}
 
@@ -189,7 +174,7 @@ We used silhouette analysis to find the optimal number of clusters for the k-mea
 \vspace{5mm}
 \begin{center}
 \includegraphics[scale=0.18]{ingredient-kmeans}
-\label{visalization-cookingtime} Figure 8. K-means silhouette analysis
+\label{ingredient-kmeans} Figure 8. K-means silhouette analysis
 \end{center}
 \vspace{5mm}
 
@@ -198,7 +183,7 @@ Based on manual analysis of the classified ingredients, the individual clusters 
 \vspace{5mm}
 \begin{center}
 \includegraphics[scale=0.24]{ingredient-clusters}
-\label{visalization-cookingtime} Figure 9. Ingredient clusters
+\label{ingredient-clusters} Figure 9. Ingredient clusters
 \end{center}
 \vspace{5mm}
 
@@ -214,7 +199,7 @@ Since ratings had special importance for the study, keeping the values on a scal
 \begin{center}
 \includegraphics[scale=0.25]{rating-1-to-3}
 \includegraphics[scale=0.25]{rating-1-to-5}
-\label{visalization-cookingtime} Figure 10. Rating distribution on scales of 3 and 5
+\label{rating-dist} Figure 10. Rating distribution on scales of 3 and 5
 \end{center}
 \vspace{5mm}
 
@@ -227,7 +212,7 @@ Rating values of 4 were by far the most common, resulting in an implicit bias in
 \vspace{5mm}
 \begin{center}
 \includegraphics[scale=0.18]{rating-balanced}
-\label{visalization-cookingtime} Figure 11. Improved rating balance
+\label{rating-balanced} Figure 11. Improved rating balance
 \end{center}
 \vspace{5mm}
 
@@ -238,14 +223,82 @@ In order to determine how healthy a particular recipe is, the nutrition values h
 \vspace{5mm}
 \begin{center}
 \includegraphics[scale=0.22]{health-grade}
-\label{visalization-cookingtime} Figure 12. Health grades
+\label{health-grade} Figure 12. Health grades
 \end{center}
 \vspace{5mm}
 
-\section{Analysis}
+\section{Effect on sentiment}
 
-With the data converted to the same format and unified into a single data set, the analysis could be performed in order to establish which factors are most likely to influence positive reviews and ratings.
+With the data having been converted to the same format and unified into a single data set, the analysis could be performed in order to establish which factors are most likely to influence positive reviews and ratings.
 
+\subsection{Factors}
+
+Before focusing on the ratings, potential factors have been analyzed to understand their distribution. It has been found that meal sizes rarely exceed 12 servings, reviews had been fairly evenly distributed over the period 2003-2011, preparation time is usually under 20 minutes, and cooking time is typically under 1 hour.
+
+\subsection{Preparation and cooking time}
+
+For each recipe an average rating of all reviews has been computed. Recipes have been grouped by preparation and cooking time, choosing 4 distinct ranges, and an additional group for no time specified. Comparing the distribution of average ratings showed that the range between 10 minutes and 1 hour resulted in the highest average ratings for both preparation and cooking times.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.16]{preptime-rating}
+\includegraphics[scale=0.16]{cooktime-rating}
+\label{time-rating} Figure 13. Preparation and cooking times
+\end{center}
+\vspace{5mm}
+
+\subsection{Serving size}
+
+Similarly to preparation and cooking times, serving sizes have been grouped to distinct ranges and the distribution of average ratings calculated. The results showed that bigger serving sizes were more likely to receive high ratings and positive reviews, which can be attributed to the fact that cooking for family gatherings and events is more likely to provoke positive feedback.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.16]{serving-rating}
+\label{serving-rating} Figure 14. Serving sizes
+\end{center}
+\vspace{5mm}
+
+\subsection{Ingredient composition}
+
+During the data preparation the common ingredient clusters have been identified. Firstly we have investigated the correlation between pairs of ingredient types, looking for the most popular combinations of basic types when taking into consideration the average rating of the recipe.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.25]{ingredient-pairs} \\
+\label{ingredient-pairs} Figure 15. Ingredient correlation
+\end{center}
+\vspace{5mm}
+
+The above heat-map only identifies weak correlations between ingredient types, such as fish combined with cheese and bread, or vegetables combined with spices.
+
+In order to find the best composition of ingredients, we counted the different ingredients per type. For example if a recipe contained 6 or more fruit ingredients, we labeled it as extensive use of fruits. Five or less ingredients of the same type was labeled moderate use.
+
+The analysis showed that moderate use of ingredients resulted in a well distributed feedback, while extensive use produced favourable results for some ingredient types, such as cheese and bread, pastries and spices. 
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.18]{ingredient-moderate}
+\includegraphics[scale=0.18]{ingredient-extensive}
+\label{ingredient-use} Figure 16. Ingredient use
+\end{center}
+\vspace{5mm}
+
+However, when comparing all possible composition of food types and their ratings, the best combinations were all moderate uses, cheese and bread combined with sauces resulting in the highest number of good ratings.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.18]{ingredient-rating} \\
+\label{ingredient-rating} Figure 17. Best ingredient compositions
+\end{center}
+\vspace{5mm}
+
+\subsection{Nutrition}
+
+
+\subsection{Graph-based analysis}
+
+
+\section{Conclusion}
 
 
 
