@@ -222,7 +222,7 @@ The food-net site contained no rating values at all, only reviews. In order to r
 
 \subsection{Rating bias}
 
-Rating values of 4 were by far the most common, resulting in an implicit bias in the analysis. In order to reduce this bias, the ratings have been slightly adjusted based on the reviews, resulting in a more balanced distribution. After all, the overall ratings provide a quick way to compare recipes, but readers are likely to read the corresponding reviews before deciding between them.
+Rating values of 4 were by far the most common, resulting in an implicit bias in the analysis. In order to reduce this bias, the first data set has been oversampled for the logistic regression training, so predicting the missing ratings resulted in a slightly more balanced distribution.
 
 \vspace{5mm}
 \begin{center}
@@ -231,8 +231,41 @@ Rating values of 4 were by far the most common, resulting in an implicit bias in
 \end{center}
 \vspace{5mm}
 
+\subsection{Healthiness}
+
+In order to determine how healthy a particular recipe is, the nutrition values have been compared with the commonly recommended daily intake values. Each recipe has been assigned a health grade, based on how many nutrients remain under 50\% of the recommended daily limit in a single serving. Most recipes received a health grade of 3 or 4 on a scale of 6.
+
+\vspace{5mm}
+\begin{center}
+\includegraphics[scale=0.22]{health-grade}
+\label{visalization-cookingtime} Figure 12. Health grades
+\end{center}
+\vspace{5mm}
+
 \section{Analysis}
 
+With the data converted to the same format and unified into a single data set, the analysis could be performed in order to establish which factors are most likely to influence positive reviews and ratings.
 
+
+
+
+
+
+\begin{thebibliography}{}
+
+\bibitem[2004]{FDA:04}
+{U.S. Food and Drug Administration}
+\newblock 2004.
+\newblock {\em How to Understand and Use the Nutrition Facts Label, The Percent Daily Value (\%DV)}
+\newblock {https://www.fda.gov/food/labelingnutrition/ \\ ucm274593.htm\#percent\_daily\_value}
+
+\bibitem[2007]{ABC:07}
+{ABC Healh and Wellbeing}.
+\newblock 2007.
+\newblock {\em What is a healthy recipe?}.
+\newblock {http://www.abc.net.au/health/library/ \\
+stories/2007/04/23/1904178.htm}
+
+\end{thebibliography}
 
 \end{document}
