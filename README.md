@@ -53,15 +53,18 @@ As well contains complenting the datasets using unsupervised learning. (NEW FOR 
 - **Nov. 25th:** Create meaningful plots and visual summaries of the data.
 
 
-# Differences between Milestone 2 and Milestone 3:
-All the updates below can be found under Data_prep_augment.ipynb :
+# Differences between Milestone 2 and Milestone 3: (NEED TO GRADE)
+A) All the updates below can be found under Data_prep_augment.ipynb :
 1. Transforming ingredients into vector embeddings. Then clustering these embeddings to obtain a food class for each ingredient. Using the food classes as features, representing the ingredients of the recipe.
 2. Using an average of word embeddings for user reviews on all recipe dataset. Then train a logistic regression model on those embeddings. Using this model to predict ratings for food.com dataset.
 3. Unifiying the two datasets : All_recipe.com and Food.com
 
-All the updates below can be found under analysis.ipynb :
-2. Plots having relation between : cooking time , prepration time , nutrition compositon, ingredient compostion , and graph degree of ingredients linked together against recipe rating (denotes user's sentiment) 
+B) All the updates below can be found under analysis.ipynb :
 
+1. Plots having relation between : cooking time , prepration time , nutrition compositon, ingredient compostion , and graph degree of ingredients linked together against recipe rating (denotes user's sentiment) 
+
+C) Report:
+a report summing up all the project
 
 # Contributions:
 1) Omar Mehio : web scrapers, data cleaning of all three datasets , feature engineering(word embeddings , kmeans clustering , logistic regression , unifying datasets) , analysis plots ( graph plots, prepration and cooking times plots, food composition plots )
